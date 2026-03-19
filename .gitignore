@@ -1,0 +1,12 @@
+@"
+node_modules/
+dist/
+.netlify/
+.env
+.env.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.vscode/
+"@ | Set-Content .gitignore

@@ -1,0 +1,357 @@
+{
+  "entities": [
+    "ABAL",
+    "ABCOBRE",
+    "ABIMCI",
+    "ABIROCHAS",
+    "ABITAM",
+    "ABIVIDRO",
+    "ABRAFE",
+    "IABR",
+    "IBA",
+    "IBRAM",
+    "SICETEL",
+    "SINDICEL",
+    "SINDIFER"
+  ],
+  "snapshots": {
+    "ABAL": [
+      {
+        "year": 2020,
+        "file": "data_ABAL_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABAL_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABAL_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABAL_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABAL_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABAL_2025.json"
+      }
+    ],
+    "ABCOBRE": [
+      {
+        "year": 2020,
+        "file": "data_ABCOBRE_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABCOBRE_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABCOBRE_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABCOBRE_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABCOBRE_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABCOBRE_2025.json"
+      }
+    ],
+    "ABIMCI": [
+      {
+        "year": 2020,
+        "file": "data_ABIMCI_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABIMCI_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABIMCI_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABIMCI_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABIMCI_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABIMCI_2025.json"
+      }
+    ],
+    "ABIROCHAS": [
+      {
+        "year": 2020,
+        "file": "data_ABIROCHAS_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABIROCHAS_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABIROCHAS_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABIROCHAS_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABIROCHAS_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABIROCHAS_2025.json"
+      }
+    ],
+    "ABITAM": [
+      {
+        "year": 2020,
+        "file": "data_ABITAM_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABITAM_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABITAM_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABITAM_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABITAM_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABITAM_2025.json"
+      }
+    ],
+    "ABIVIDRO": [
+      {
+        "year": 2020,
+        "file": "data_ABIVIDRO_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABIVIDRO_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABIVIDRO_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABIVIDRO_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABIVIDRO_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABIVIDRO_2025.json"
+      }
+    ],
+    "ABRAFE": [
+      {
+        "year": 2020,
+        "file": "data_ABRAFE_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_ABRAFE_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_ABRAFE_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_ABRAFE_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_ABRAFE_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_ABRAFE_2025.json"
+      }
+    ],
+    "IABR": [
+      {
+        "year": 2020,
+        "file": "data_IABR_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_IABR_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_IABR_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_IABR_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_IABR_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_IABR_2025.json"
+      }
+    ],
+    "IBA": [
+      {
+        "year": 2020,
+        "file": "data_IBA_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_IBA_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_IBA_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_IBA_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_IBA_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_IBA_2025.json"
+      }
+    ],
+    "IBRAM": [
+      {
+        "year": 2020,
+        "file": "data_IBRAM_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_IBRAM_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_IBRAM_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_IBRAM_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_IBRAM_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_IBRAM_2025.json"
+      }
+    ],
+    "SICETEL": [
+      {
+        "year": 2020,
+        "file": "data_SICETEL_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_SICETEL_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_SICETEL_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_SICETEL_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_SICETEL_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_SICETEL_2025.json"
+      }
+    ],
+    "SINDICEL": [
+      {
+        "year": 2020,
+        "file": "data_SINDICEL_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_SINDICEL_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_SINDICEL_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_SINDICEL_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_SINDICEL_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_SINDICEL_2025.json"
+      }
+    ],
+    "SINDIFER": [
+      {
+        "year": 2020,
+        "file": "data_SINDIFER_2020.json"
+      },
+      {
+        "year": 2021,
+        "file": "data_SINDIFER_2021.json"
+      },
+      {
+        "year": 2022,
+        "file": "data_SINDIFER_2022.json"
+      },
+      {
+        "year": 2023,
+        "file": "data_SINDIFER_2023.json"
+      },
+      {
+        "year": 2024,
+        "file": "data_SINDIFER_2024.json"
+      },
+      {
+        "year": 2025,
+        "file": "data_SINDIFER_2025.json"
+      }
+    ]
+  }
+}
