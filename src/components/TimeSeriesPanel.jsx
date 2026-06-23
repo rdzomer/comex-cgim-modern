@@ -50,7 +50,7 @@ function EmptyChartState({ text }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#b7bfdc",
+        color: "#94a3b8",
         textAlign: "center",
         padding: 24,
       }}
@@ -66,12 +66,12 @@ function CustomTooltip({ active, payload, label }) {
   return (
     <div
       style={{
-        background: "rgba(10,16,38,0.96)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        borderRadius: 14,
-        padding: "10px 12px",
-        boxShadow: "0 14px 36px rgba(0,0,0,0.28)",
-        color: "#fff",
+        background: "#ffffff",
+        border: "1px solid #e2e8f0",
+        borderRadius: 10,
+        padding: "10px 14px",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.10)",
+        color: "#1e293b",
         minWidth: 180,
       }}
     >
@@ -79,7 +79,8 @@ function CustomTooltip({ active, payload, label }) {
         style={{
           fontWeight: 700,
           marginBottom: 8,
-          color: "#dfe6ff",
+          color: "#1e293b",
+          fontSize: 13,
         }}
       >
         {label}
@@ -99,13 +100,13 @@ function CustomTooltip({ active, payload, label }) {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              gap: 12,
+              gap: 16,
               fontSize: 13,
-              color: "#eef2ff",
+              color: "#475569",
             }}
           >
             <span>{entry.name}</span>
-            <strong>{display}</strong>
+            <strong style={{ color: "#1e293b" }}>{display}</strong>
           </div>
         );
       })}
@@ -114,35 +115,45 @@ function CustomTooltip({ active, payload, label }) {
 }
 
 const LEVEL1_COLORS = [
-  "#7C9CFF",
-  "#5EEAD4",
-  "#A78BFA",
-  "#F59E0B",
-  "#FB7185",
-  "#38BDF8",
-  "#4ADE80",
-  "#F472B6",
+  "#2563eb",
+  "#0d9488",
+  "#d97706",
+  "#dc2626",
+  "#7c3aed",
+  "#0891b2",
+  "#16a34a",
+  "#db2777",
 ];
 
 export default function TimeSeriesPanel({
   yearlySeries = [],
   level1Series = [],
+  categorySeries = [],
   loading = false,
 }) {
   const level1Keys = React.useMemo(() => {
     const keys = new Set();
-
     for (const row of level1Series || []) {
       Object.keys(row || {}).forEach((key) => {
         if (key !== "year") keys.add(key);
       });
     }
-
     return [...keys].slice(0, 6);
   }, [level1Series]);
 
+  const categoryKeys = React.useMemo(() => {
+    const keys = new Set();
+    for (const row of categorySeries || []) {
+      Object.keys(row || {}).forEach((key) => {
+        if (key !== "year") keys.add(key);
+      });
+    }
+    return [...keys];
+  }, [categorySeries]);
+
   const hasYearlyData = hasAnyPositiveValue(yearlySeries, ["fob", "kg", "usdPerTon"]);
   const hasLevel1Data = hasAnyPositiveValue(level1Series, level1Keys);
+  const hasCategoryData = hasAnyPositiveValue(categorySeries, categoryKeys);
 
   if (loading) {
     return <section className="panel">Carregando séries históricas...</section>;
@@ -166,19 +177,19 @@ export default function TimeSeriesPanel({
               >
                 <CartesianGrid
                   strokeDasharray="3 3"
-                  stroke="rgba(255,255,255,0.10)"
+                  stroke="#e2e8f0"
                   vertical={false}
                 />
                 <XAxis
                   dataKey="year"
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
-                  axisLine={{ stroke: "rgba(255,255,255,0.18)" }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
+                  axisLine={{ stroke: "#e2e8f0" }}
                   tickLine={false}
                 />
                 <YAxis
                   yAxisId="left"
                   tickFormatter={formatCompact}
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                   width={70}
@@ -187,7 +198,7 @@ export default function TimeSeriesPanel({
                   yAxisId="right"
                   orientation="right"
                   tickFormatter={formatCompact}
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                   width={70}
@@ -199,20 +210,20 @@ export default function TimeSeriesPanel({
                   type="monotone"
                   dataKey="fob"
                   name="FOB (US$)"
-                  stroke="#7C9CFF"
-                  strokeWidth={3}
-                  dot={{ r: 4 }}
-                  activeDot={{ r: 6 }}
+                  stroke="#2563eb"
+                  strokeWidth={2.5}
+                  dot={{ r: 3, fill: "#2563eb" }}
+                  activeDot={{ r: 5 }}
                 />
                 <Line
                   yAxisId="right"
                   type="monotone"
                   dataKey="kg"
                   name="KG"
-                  stroke="#5EEAD4"
-                  strokeWidth={3}
-                  dot={{ r: 4 }}
-                  activeDot={{ r: 6 }}
+                  stroke="#0d9488"
+                  strokeWidth={2.5}
+                  dot={{ r: 3, fill: "#0d9488" }}
+                  activeDot={{ r: 5 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -236,18 +247,18 @@ export default function TimeSeriesPanel({
               >
                 <CartesianGrid
                   strokeDasharray="3 3"
-                  stroke="rgba(255,255,255,0.10)"
+                  stroke="#e2e8f0"
                   vertical={false}
                 />
                 <XAxis
                   dataKey="year"
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
-                  axisLine={{ stroke: "rgba(255,255,255,0.18)" }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
+                  axisLine={{ stroke: "#e2e8f0" }}
                   tickLine={false}
                 />
                 <YAxis
                   tickFormatter={formatCompact}
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                   width={70}
@@ -257,10 +268,10 @@ export default function TimeSeriesPanel({
                   type="monotone"
                   dataKey="usdPerTon"
                   name="US$/ton"
-                  stroke="#F59E0B"
-                  strokeWidth={3}
-                  dot={{ r: 4 }}
-                  activeDot={{ r: 6 }}
+                  stroke="#d97706"
+                  strokeWidth={2.5}
+                  dot={{ r: 3, fill: "#d97706" }}
+                  activeDot={{ r: 5 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -284,18 +295,18 @@ export default function TimeSeriesPanel({
               >
                 <CartesianGrid
                   strokeDasharray="3 3"
-                  stroke="rgba(255,255,255,0.10)"
+                  stroke="#e2e8f0"
                   vertical={false}
                 />
                 <XAxis
                   dataKey="year"
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
-                  axisLine={{ stroke: "rgba(255,255,255,0.18)" }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
+                  axisLine={{ stroke: "#e2e8f0" }}
                   tickLine={false}
                 />
                 <YAxis
                   tickFormatter={formatCompact}
-                  tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                   width={70}
@@ -310,6 +321,56 @@ export default function TimeSeriesPanel({
                     stackId="level1"
                     fill={LEVEL1_COLORS[index % LEVEL1_COLORS.length]}
                     radius={index === level1Keys.length - 1 ? [8, 8, 0, 0] : [0, 0, 0, 0]}
+                  />
+                ))}
+              </BarChart>
+            </ResponsiveContainer>
+          )}
+        </div>
+      </div>
+
+      <div className="panel chart-panel">
+        <div className="section-title-row">
+          <h2>Evolução anual por categoria (cesta)</h2>
+        </div>
+
+        <div className="chart-box tall-chart">
+          {!hasCategoryData ? (
+            <EmptyChartState text="Não encontramos dados suficientes para montar a evolução por categoria." />
+          ) : (
+            <ResponsiveContainer width="100%" height={380}>
+              <BarChart
+                data={categorySeries}
+                margin={{ top: 12, right: 18, left: 8, bottom: 8 }}
+              >
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="#e2e8f0"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="year"
+                  tick={{ fill: "#64748b", fontSize: 12 }}
+                  axisLine={{ stroke: "#e2e8f0" }}
+                  tickLine={false}
+                />
+                <YAxis
+                  tickFormatter={formatCompact}
+                  tick={{ fill: "#64748b", fontSize: 12 }}
+                  axisLine={false}
+                  tickLine={false}
+                  width={70}
+                />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend />
+                {categoryKeys.map((key, index) => (
+                  <Bar
+                    key={key}
+                    dataKey={key}
+                    name={key}
+                    stackId="category"
+                    fill={LEVEL1_COLORS[index % LEVEL1_COLORS.length]}
+                    radius={index === categoryKeys.length - 1 ? [8, 8, 0, 0] : [0, 0, 0, 0]}
                   />
                 ))}
               </BarChart>

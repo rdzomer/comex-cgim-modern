@@ -162,6 +162,49 @@ export async function loadEntityYearlySeries({
     .sort((a, b) => Number(a.year) - Number(b.year));
 }
 
+function buildCategoryRowFromTree(snapshot, flow) {
+  const normalizedFlow = normalizeFlowValue(flow);
+  const rawTree = snapshot?.trees?.[normalizedFlow] || [];
+  if (!rawTree.length) return null;
+
+  const categoryTree = aggregateTreeByLevel(rawTree, "category");
+  const filteredTree = filterTree(categoryTree, [], []);
+
+  const row = {};
+  for (const category of filteredTree) {
+    row[category.name] = safeNumber(category.metrics?.fob);
+  }
+  return row;
+}
+
+export async function loadEntityCategorySeries({ manifest, entityId, flow = "import" }) {
+  if (!manifest || !entityId) return [];
+
+  const years = getYearsForEntity(manifest, entityId);
+  const rows = [];
+
+  for (const year of years) {
+    const file = getSnapshotFile(manifest, entityId, Number(year));
+    if (!file) continue;
+
+    try {
+      const snapshot = await loadSnapshotByFile(file);
+      const row = buildCategoryRowFromTree(snapshot, flow);
+      rows.push({ year: String(year), ...(row || {}) });
+    } catch (error) {
+      console.warn(`Falha ao carregar série por categoria: ${entityId} ${year}`, error);
+    }
+  }
+
+  return rows
+    .filter((row) =>
+      Object.entries(row)
+        .filter(([key]) => key !== "year")
+        .some(([, v]) => Number(v) > 0)
+    )
+    .sort((a, b) => Number(a.year) - Number(b.year));
+}
+
 function buildLevel1RowFromTree(snapshot, flow, selectedCategory) {
   const normalizedFlow = normalizeFlowValue(flow);
   const rawTree = snapshot?.trees?.[normalizedFlow] || [];

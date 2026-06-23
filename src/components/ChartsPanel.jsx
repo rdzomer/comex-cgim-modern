@@ -50,12 +50,12 @@ function CustomTooltip({ active, payload, label }) {
   return (
     <div
       style={{
-        background: "rgba(10,16,38,0.96)",
-        border: "1px solid rgba(255,255,255,0.12)",
-        borderRadius: 14,
-        padding: "10px 12px",
-        boxShadow: "0 14px 36px rgba(0,0,0,0.28)",
-        color: "#fff",
+        background: "#ffffff",
+        border: "1px solid #e2e8f0",
+        borderRadius: 10,
+        padding: "10px 14px",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.10)",
+        color: "#1e293b",
         minWidth: 180,
       }}
     >
@@ -64,8 +64,9 @@ function CustomTooltip({ active, payload, label }) {
           style={{
             fontWeight: 700,
             marginBottom: 8,
-            color: "#dfe6ff",
+            color: "#1e293b",
             lineHeight: 1.3,
+            fontSize: 13,
           }}
         >
           {label}
@@ -78,13 +79,13 @@ function CustomTooltip({ active, payload, label }) {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            gap: 12,
+            gap: 16,
             fontSize: 13,
-            color: "#eef2ff",
+            color: "#475569",
           }}
         >
           <span>{entry.name}</span>
-          <strong>{formatMoney(entry.value)}</strong>
+          <strong style={{ color: "#1e293b" }}>{formatMoney(entry.value)}</strong>
         </div>
       ))}
     </div>
@@ -92,16 +93,16 @@ function CustomTooltip({ active, payload, label }) {
 }
 
 const PIE_COLORS = [
-  "#7C9CFF",
-  "#5EEAD4",
-  "#A78BFA",
-  "#F59E0B",
-  "#FB7185",
-  "#38BDF8",
-  "#4ADE80",
-  "#F472B6",
-  "#C084FC",
-  "#FACC15",
+  "#2563eb",
+  "#0d9488",
+  "#d97706",
+  "#dc2626",
+  "#7c3aed",
+  "#0891b2",
+  "#16a34a",
+  "#db2777",
+  "#ea580c",
+  "#0f766e",
 ];
 
 function CustomLegend({ payload = [] }) {
@@ -110,7 +111,7 @@ function CustomLegend({ payload = [] }) {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: 12,
+        gap: 10,
         justifyContent: "center",
         marginTop: 8,
       }}
@@ -121,18 +122,19 @@ function CustomLegend({ payload = [] }) {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 8,
-            color: "#dbe3ff",
+            gap: 6,
+            color: "#475569",
             fontSize: 12,
           }}
         >
           <span
             style={{
-              width: 10,
-              height: 10,
+              width: 8,
+              height: 8,
               borderRadius: 999,
               background: entry.color,
               display: "inline-block",
+              flexShrink: 0,
             }}
           />
           <span>{entry.value}</span>
@@ -171,22 +173,22 @@ export default function ChartsPanel({
             >
               <defs>
                 <linearGradient id="barGradientMain" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#8BA5FF" />
-                  <stop offset="100%" stopColor="#5B7CFA" />
+                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="100%" stopColor="#1d4ed8" />
                 </linearGradient>
               </defs>
 
               <CartesianGrid
                 strokeDasharray="3 3"
-                stroke="rgba(255,255,255,0.10)"
+                stroke="#e2e8f0"
                 vertical={false}
               />
 
               <XAxis
                 dataKey="name"
                 tickFormatter={(value) => truncateLabel(value, 22)}
-                tick={{ fill: "#dbe3ff", fontSize: 12 }}
-                axisLine={{ stroke: "rgba(255,255,255,0.18)" }}
+                tick={{ fill: "#64748b", fontSize: 12 }}
+                axisLine={{ stroke: "#e2e8f0" }}
                 tickLine={false}
                 interval={0}
                 angle={-12}
@@ -196,20 +198,20 @@ export default function ChartsPanel({
 
               <YAxis
                 tickFormatter={formatAxisNumber}
-                tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                tick={{ fill: "#64748b", fontSize: 12 }}
                 axisLine={false}
                 tickLine={false}
                 width={70}
               />
 
-              <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(255,255,255,0.04)" }} />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0,0,0,0.04)" }} />
 
               <Bar
                 dataKey="fob"
                 name="FOB (US$)"
                 fill="url(#barGradientMain)"
-                radius={[10, 10, 0, 0]}
-                maxBarSize={72}
+                radius={[8, 8, 0, 0]}
+                maxBarSize={64}
               />
             </BarChart>
           </ResponsiveContainer>
@@ -231,8 +233,8 @@ export default function ChartsPanel({
                 outerRadius={104}
                 innerRadius={58}
                 paddingAngle={2}
-                stroke="rgba(255,255,255,0.55)"
-                strokeWidth={1}
+                stroke="#ffffff"
+                strokeWidth={2}
               >
                 {pieData.map((_, index) => (
                   <Cell
@@ -268,14 +270,14 @@ export default function ChartsPanel({
             >
               <defs>
                 <linearGradient id="barGradientSecondary" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#5EEAD4" />
-                  <stop offset="100%" stopColor="#2DD4BF" />
+                  <stop offset="0%" stopColor="#14b8a6" />
+                  <stop offset="100%" stopColor="#0d9488" />
                 </linearGradient>
               </defs>
 
               <CartesianGrid
                 strokeDasharray="3 3"
-                stroke="rgba(255,255,255,0.10)"
+                stroke="#e2e8f0"
                 horizontal={true}
                 vertical={false}
               />
@@ -283,7 +285,7 @@ export default function ChartsPanel({
               <XAxis
                 type="number"
                 tickFormatter={formatAxisNumber}
-                tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                tick={{ fill: "#64748b", fontSize: 12 }}
                 axisLine={false}
                 tickLine={false}
               />
@@ -293,19 +295,19 @@ export default function ChartsPanel({
                 dataKey="name"
                 width={190}
                 tickFormatter={(value) => truncateLabel(value, 28)}
-                tick={{ fill: "#dbe3ff", fontSize: 12 }}
+                tick={{ fill: "#64748b", fontSize: 12 }}
                 axisLine={false}
                 tickLine={false}
               />
 
-              <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(255,255,255,0.04)" }} />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: "rgba(0,0,0,0.04)" }} />
 
               <Bar
                 dataKey="fob"
                 name="FOB (US$)"
                 fill="url(#barGradientSecondary)"
-                radius={[0, 10, 10, 0]}
-                maxBarSize={28}
+                radius={[0, 8, 8, 0]}
+                maxBarSize={26}
               />
             </BarChart>
           </ResponsiveContainer>

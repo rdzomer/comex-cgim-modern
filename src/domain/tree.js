@@ -195,7 +195,11 @@ export function filterTree(tree, selectedCategories = [], selectedSubcategories 
     .filter((category) => !categorySet.size || categorySet.has(category.name))
     .map((category) => {
       const children = (category.children || []).filter((sub) => !subSet.size || subSet.has(sub.name));
-      const metrics = aggregateMetricsFromChildren(children);
+      // When no subcategory filter is active, preserve pre-aggregated category metrics
+      // (children may be [] after aggregateTreeByLevel at 'category' level)
+      const metrics = subSet.size === 0
+        ? (category.metrics || aggregateMetricsFromChildren(children))
+        : aggregateMetricsFromChildren(children);
 
       return {
         ...category,
